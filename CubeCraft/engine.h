@@ -3,6 +3,7 @@
 namespace cc {
 	class engine {
 	public:
-		void init();
+		/*SDL是一个游戏引擎*/
+		static void init();
 	};
 };

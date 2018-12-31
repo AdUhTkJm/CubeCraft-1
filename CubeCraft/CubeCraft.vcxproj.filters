@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Graphics">
+      <UniqueIdentifier>{6d60be24-ed82-46df-9cb0-dafe416d8828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{3e98d3ab-4359-495b-8aa1-c3608997653d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="block.cpp">
@@ -21,13 +27,16 @@
     <ClCompile Include="entity.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="fac.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="engine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="application.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,11 +47,20 @@
     <ClInclude Include="entity.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="fac.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="engine.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="application.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="blockdef.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="noncopyable.hpp">
+      <Filter>头文件\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

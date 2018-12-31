@@ -2,7 +2,6 @@
 #include <SDL/SDL.h>
 #include <stdexcept>
 
-/*SDL*/
 void cc::engine::init()
 {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);

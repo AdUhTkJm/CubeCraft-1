@@ -1,7 +1,7 @@
 #include"entity.h"
 #include"block.h"
 
-bool put_inv(Block x, Inventory v) {
+/*bool put_inv(Block x, Inventory v) {
 	for (int i = 0; i <= v.top; ++i)
 		if (v.cont[i].x.id == x.id && v.cont[i].num != boxmx[v.cont[i].x.id]) {
 			++v.cont[i].num;
@@ -12,3 +12,8 @@ bool put_inv(Block x, Inventory v) {
 	v.cont[v.top].x = x;
 	return true;
 }
+
+cc::entity::entity(glm::vec3 pos, glm::vec3 rot)
+	:pos(pos), rot(rot)
+{
+}*/

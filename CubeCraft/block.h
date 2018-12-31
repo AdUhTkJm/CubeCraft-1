@@ -1,13 +1,12 @@
 #pragma once
 #include <glm/glm.hpp>
+#include "blockdef.hpp"
 
-struct Block {
-	glm:: t;
-	BlockType id;
-	Block(Point p = Point(), BlockType ty = air): t(p), id(ty) {}
-	void draw();
-};
-
-extern Block visible[64][64][64], invalid;
-
-Block& at(int a, int b, int c);
+namespace cc {
+	class Block {
+		glm::ivec3 pos;
+		BlockType id;
+		Block(glm::ivec3 pos = {}, BlockType ty = air);
+		void draw();
+	};
+}
