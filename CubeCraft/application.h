@@ -8,7 +8,7 @@ namespace cc {
 	{
 	public:
 		application();
-		void run();
+		void run() noexcept;
 	private:
 		bool running = true;
 		window m_window;

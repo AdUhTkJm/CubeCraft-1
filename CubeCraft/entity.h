@@ -8,7 +8,7 @@ namespace cc {
 		:private noncopyable
 	{
 	public:
-		entity(glm::vec3 pos, glm::vec3 rot);
+		entity(glm::vec3 pos, glm::vec3 rot) noexcept;
 	protected:
 		glm::vec3 pos, rot;
 	};

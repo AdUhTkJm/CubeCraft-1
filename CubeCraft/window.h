@@ -12,9 +12,10 @@ namespace cc {
 	public:
 		window(const std::string title = "", int width = 800, int height = 600,
 			int x = SDL_WINDOWPOS_UNDEFINED, int y = SDL_WINDOWPOS_UNDEFINED);
+		~window();
 		void swap_buffers() const noexcept;
 		int poll_event(Event & event) const noexcept;
-
+		void make_current() const noexcept;
 	private:
 		SDL_Window * m_window;
 		SDL_GLContext m_context;

@@ -6,7 +6,7 @@ namespace cc {
 	class Block {
 		glm::ivec3 pos;
 		BlockType id;
-		Block(glm::ivec3 pos = {}, BlockType ty = air);
+		Block(glm::ivec3 pos = {}, BlockType ty = air) noexcept;
 		void draw();
 	};
 }

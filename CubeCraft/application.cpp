@@ -9,12 +9,12 @@ cc::application::application()
 
 }
 
-void cc::application::run()
+void cc::application::run()  noexcept
 {
 	while (running) {
 		cc::Event e;
 		while (m_window.poll_event(e)) {
-			if (e.type = SDL_QUIT) {
+			if (e.type == SDL_QUIT) {
 				running = false;
 			}
 		}
