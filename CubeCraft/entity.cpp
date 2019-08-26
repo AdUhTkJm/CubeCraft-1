@@ -1,19 +1,26 @@
 #include"entity.h"
 #include"block.h"
 
-/*bool put_inv(Block x, Inventory v) {
-	for (int i = 0; i <= v.top; ++i)
-		if (v.cont[i].x.id == x.id && v.cont[i].num != boxmx[v.cont[i].x.id]) {
-			++v.cont[i].num;
-			return true;
-		}
-	if (v.top == 28) return false;
-	++v.cont[++v.top].num;
-	v.cont[v.top].x = x;
-	return true;
+cc::entity::entity(glm::vec3 pos, glm::vec3 rot) noexcept: pos(pos), fr(rot) {
 }
 
-cc::entity::entity(glm::vec3 pos, glm::vec3 rot)
-	:pos(pos), rot(rot)
-{
-}*/
+cc::player::player() noexcept: entity(glm::vec3(0, 2, 0)) {
+}
+
+glm::vec3 cc::entity::position() const noexcept {
+	return pos;
+}
+
+glm::vec3 cc::entity::front() const noexcept {
+	return fr;
+}
+
+void cc::entity::front(glm::vec3 x) noexcept {
+	fr = x;
+}
+
+glm::vec3 cc::player::move(glm::vec3 delta) {
+	return pos += delta;
+}
+
+cc::player cc::ent_player;

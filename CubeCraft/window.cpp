@@ -1,41 +1,65 @@
 #include "window.h"
+#include "callback.h"
+#include "block_manager.h"
 #include <stdexcept>
-#include <GL/glew.h>
+#include <glad/glad.h>
+#include <glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
+/*namespace {
+	void on_reshape(GLFWwindow* window,int width, int height) {
+		cc::shader_manager::access("default").uniform("model", glm::perspective(glm::radians(45.0f), (float)width / (float)height, 0.1f, 100.0f));
+	}
+}*/
 
 cc::window::window(const std::string title, int width, int height, int x, int y)
-	:m_window(SDL_CreateWindow(title.c_str(), x, y, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL))
 {
-	if (!m_window) {
-		throw std::runtime_error("Cannot create window.");
-	}
-	m_context = SDL_GL_CreateContext(m_window);
-	if (!m_context) {
-		throw std::runtime_error("Cannot init GL.");
-	}
-	else {
-		if (glewInit() != GLEW_OK) {
-			throw std::runtime_error("Cannot init GL.");
-		}
-	}
+	if (!glfwInit())
+		throw std::runtime_error("Unable to initialize the Graphics Library");
+	m_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwMakeContextCurrent(m_window);
+	glfwSetWindowPos(m_window, x, y);
+	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	callback_manager::registry(m_window);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
+
+	block_registry::registry(grass, ".\\texture\\grassen.bmp");
+	block_registry::registry(dirt, ".\\texture\\dirt.bmp");
+	block_registry::registry(stone, ".\\texture\\stone.bmp");
+	block_registry::registry(bedrock, ".\\texture\\bedrock.bmp");
+
+	world::erect();
 }
 
-cc::window::~window()
+cc::window::~window() noexcept
 {
-	SDL_GL_DeleteContext(m_context);
-	SDL_DestroyWindow(m_window);
+	glfwDestroyWindow(m_window);
+	glfwTerminate();
 }
 
 void cc::window::swap_buffers() const noexcept
 {
-	SDL_GL_SwapWindow(m_window);
+	glfwSwapBuffers(m_window);
 }
 
-int cc::window::poll_event(cc::Event & event) const noexcept
+bool cc::window::should_close() const noexcept
 {
-	return SDL_PollEvent(&event);
+	return glfwWindowShouldClose(m_window);
 }
 
-void cc::window::make_current() const noexcept
+void cc::window::poll_events() const
 {
-	SDL_GL_MakeCurrent(m_window, m_context);
+	glfwPollEvents();
+}
+
+double cc::window::aspect() const {
+	int w, h;
+	glfwGetWindowSize(m_window, &w, &h);
+	return double(w) / h;
 }

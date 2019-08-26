@@ -1,13 +1,16 @@
 #include "engine.h"
-#include <SDL/SDL.h>
+#include <../glfw3.h>
+#include <glad/glad.h>
 #include <stdexcept>
 
-void cc::engine::init()
+cc::engine cc::engine::e;
+
+cc::engine::engine()
 {
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		throw std::runtime_error("Cannot init SDL.");
-	}
+	gladLoadGL();
+}
+
+cc::engine::~engine()
+{
+	//SDL_Quit();
 }

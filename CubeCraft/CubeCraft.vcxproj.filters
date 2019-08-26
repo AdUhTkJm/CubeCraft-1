@@ -19,6 +19,12 @@
     <Filter Include="头文件\Utils">
       <UniqueIdentifier>{3e98d3ab-4359-495b-8aa1-c3608997653d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\shaders">
+      <UniqueIdentifier>{7a386498-fee7-48d5-97a5-8a290b096dc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\glm">
+      <UniqueIdentifier>{0dfb7875-9b3f-4c25-a3a3-4b0d396a8c0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="block.cpp">
@@ -37,6 +43,33 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="shader_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vertex_buffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vertex_array.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\OpenGL\glfw-3.2.1\include\GLFW\src\glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="block_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="callback.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,5 +95,111 @@
     <ClInclude Include="noncopyable.hpp">
       <Filter>头文件\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_manager.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="resource_manager.hpp">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex_buffer.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex_array.h">
+      <Filter>头文件\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\common.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\exponential.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\ext.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\fwd.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\geometric.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\glm.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\integer.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat2x2.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat2x3.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat2x4.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat3x2.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat3x3.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat3x4.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat4x2.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat4x3.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\mat4x4.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\matrix.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\packing.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\trigonometric.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\vec2.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\vec3.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\vec4.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\glm\vector_relational.hpp">
+      <Filter>头文件\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="block_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="callback.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vert">
+      <Filter>资源文件\shaders</Filter>
+    </None>
+    <None Include="default.frag">
+      <Filter>资源文件\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Include\glm\CMakeLists.txt">
+      <Filter>头文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

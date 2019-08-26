@@ -2,8 +2,9 @@
 
 namespace cc {
 	class engine {
-	public:
-		/*SDL是一个游戏引擎*/
-		static void init();
+	private:
+		engine();
+		~engine();
+		static engine e;
 	};
 };

@@ -1,23 +1,23 @@
 #pragma once
 #include <string>
-#include <SDL/SDL_video.h>
-#include <SDL/SDL_events.h>
+#include <glad/glad.h>
 #include "noncopyable.hpp"
+#include <../glfw3.h>
 
 namespace cc {
-	using Event = SDL_Event;
 	class window 
 		:private noncopyable
 	{
 	public:
-		window(const std::string title = "", int width = 800, int height = 600,
-			int x = SDL_WINDOWPOS_UNDEFINED, int y = SDL_WINDOWPOS_UNDEFINED);
-		~window();
+		explicit window(const std::string title = "", int width = 800, int height = 600,
+			int x = 0, int y = 0);
+		~window() noexcept;
 		void swap_buffers() const noexcept;
-		int poll_event(Event & event) const noexcept;
-		void make_current() const noexcept;
+		bool should_close() const noexcept;
+		void poll_events() const;
+		double aspect() const;
+		GLFWwindow* self() { return m_window; }
 	private:
-		SDL_Window * m_window;
-		SDL_GLContext m_context;
+		GLFWwindow* m_window;
 	};
 };

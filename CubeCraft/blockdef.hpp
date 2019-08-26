@@ -1,8 +1,10 @@
 #pragma once
 namespace cc {
-	enum BlockType {
+	enum block_type {
 		air = 0,
 		grass,
-		dirt
+		dirt,
+		stone,
+		bedrock
 	};
 }

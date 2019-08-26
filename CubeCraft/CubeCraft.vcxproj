@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -70,8 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\OpenGL\glfw-3.2.1\include\GLFW\include;E:\OpenGL\glfw-3.2.1\include\GLFW;$(ProjectDir)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\OpenGL\libs;$(ProjectDir)\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>.\include;E:\OpenGL\glfw-3.2.1\include\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>E:\OpenGL\libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SOIL.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32.lib;glew32s.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;SOIL.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -91,6 +95,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,19 +130,66 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="block.cpp" />
+    <ClCompile Include="block_manager.cpp" />
+    <ClCompile Include="callback.cpp" />
+    <ClCompile Include="E:\OpenGL\glfw-3.2.1\include\GLFW\src\glad.c" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="shader_manager.cpp" />
+    <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="vertex_array.cpp" />
+    <ClCompile Include="vertex_buffer.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="block.h" />
     <ClInclude Include="blockdef.hpp" />
+    <ClInclude Include="block_manager.h" />
+    <ClInclude Include="callback.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="Include\glm\common.hpp" />
+    <ClInclude Include="Include\glm\exponential.hpp" />
+    <ClInclude Include="Include\glm\ext.hpp" />
+    <ClInclude Include="Include\glm\fwd.hpp" />
+    <ClInclude Include="Include\glm\geometric.hpp" />
+    <ClInclude Include="Include\glm\glm.hpp" />
+    <ClInclude Include="Include\glm\integer.hpp" />
+    <ClInclude Include="Include\glm\mat2x2.hpp" />
+    <ClInclude Include="Include\glm\mat2x3.hpp" />
+    <ClInclude Include="Include\glm\mat2x4.hpp" />
+    <ClInclude Include="Include\glm\mat3x2.hpp" />
+    <ClInclude Include="Include\glm\mat3x3.hpp" />
+    <ClInclude Include="Include\glm\mat3x4.hpp" />
+    <ClInclude Include="Include\glm\mat4x2.hpp" />
+    <ClInclude Include="Include\glm\mat4x3.hpp" />
+    <ClInclude Include="Include\glm\mat4x4.hpp" />
+    <ClInclude Include="Include\glm\matrix.hpp" />
+    <ClInclude Include="Include\glm\packing.hpp" />
+    <ClInclude Include="Include\glm\trigonometric.hpp" />
+    <ClInclude Include="Include\glm\vec2.hpp" />
+    <ClInclude Include="Include\glm\vec3.hpp" />
+    <ClInclude Include="Include\glm\vec4.hpp" />
+    <ClInclude Include="Include\glm\vector_relational.hpp" />
     <ClInclude Include="noncopyable.hpp" />
+    <ClInclude Include="resource_manager.hpp" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="shader_manager.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="vertex_array.h" />
+    <ClInclude Include="vertex_buffer.h" />
     <ClInclude Include="window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.frag" />
+    <None Include="default.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Include\glm\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
